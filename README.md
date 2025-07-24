@@ -1,71 +1,95 @@
-# Welcome to your Lovable project
+# FocusRoom
 
-## Project info
+A calm, distraction-free digital space designed to help you stay focused and productive.
 
-**URL**: https://lovable.dev/projects/14de07bc-a2ee-476c-8402-94527e161508
+## Overview
+FocusRoom is your personal sanctuary for deep work. Designed with minimalism in mind, it creates a peaceful environment where you can focus on your tasks without distractions. Customize your workspace, set timers, and track your productivity with ease.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/14de07bc-a2ee-476c-8402-94527e161508) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+## Features
+- **Distraction-Free UI:** A clean, minimal interface to help you stay in the zone.
+- **Focus Timer:** Built-in Pomodoro-style timer to break work into focused intervals.
+- **Themes & Backgrounds:** Choose calming themes or background visuals that suit your vibe.
+- **To-Do Panel:** Manage simple daily tasks and priorities.
+- **Ambient Sounds (optional):** Light ambient sounds to improve focus (e.g., rain, forest, café).
 
 
+<img width="1201" height="812" alt="image" src="https://github.com/user-attachments/assets/fe521784-1753-4c0e-93c8-45ec6a89c7fb" />
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tech Stack
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) (build tool)
+- [Tailwind CSS](https://tailwindcss.com/) (utility-first styling)
 
-Follow these steps:
+## Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm (v9+ recommended)
+
+### Installation
+```sh
+# Clone the repository
+git clone https://github.com/ItsAkshatSh/FocusRoom.git
+cd focusroom
+
+# Install dependencies
+npm install
+```
+## Spotify API setup
+
+### Step 1: Head to the Spotify Developer Dashboard
+Go to [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard). Sign in with your Spotify account (or create one if needed).
+
+### Step 2: Create an App
+- Click the **"Create an App"** button.
+- Give your app a name (e.g., `FocusRoom Music or whatever fits).
+- Add a short description (e.g., “For personal use”).
+- Agree to the terms and click **"Create"**.
+
+Boom. You’ve got an app.
+
+### Step 3: Get Your Client ID (and Secret)
+- Once your app is created, you’ll be redirected to the app overview.
+- Your **Client ID** is right there — copy it.
+- Once you copy your Client ID, head over to src\services\spotifyService.ts or [here](https://github.com/ItsAkshatSh/focusroom/blob/bdff3f35aa45f4df166d5c63b62a5e1d67ebcce2/src/services/spotifyService.ts#L58) and replace 'SPOTIFY_CLIENT_ID' with your's
+### Step 4: Set Redirect URIs
+- In your app dashboard, scroll down to the **Redirect URIs** section.
+- Click **"Edit Settings"** → under **Redirect URIs**, add:
+```sh
+http://127.0.0.1:5173 // or the local/dev server 
+```
+-Done!
+
+## Google OAuth setup
+
+### Step 1: Go to Google Cloud Console
+Head over to [console.cloud.google.com](https://console.cloud.google.com/). Sign in with your Google account if you aren’t already.
+
+### Step 2: Create a New Project
+- Click the project dropdown on the top bar.
+- Hit **"New Project"**.
+- Give it a name (e.g., `FocusRoom Login`) and click **"Create"**.
+- Wait a few seconds for it to set up, then click **"Select Project"**.
+
+### Step 3: Enable the OAuth API
+- In the left sidebar, go to **APIs & Services → Library**.
+- Search for **"Google Identity Services"**.
+- Click on it, then hit **"Enable"**.
+
+### Step 4: Set Up OAuth Credentials
+- Go to **APIs & Services → Credentials**.
+- Click **"Create Credentials" → "OAuth client ID"**.
+- If prompted, configure the OAuth consent screen first (just fill in the basic fields like app name and support email).
+- For **Application Type**, choose **Web application**.
+- Give it a name (e.g., `FocusRoom Auth`).
+- Under **Authorized JavaScript origins**, enter your domain. For local development, add:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+http://127.0.0.1:5173 // or the local/dev server 
 ```
 
-**Edit a file directly in GitHub**
+- Click **Create**.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/14de07bc-a2ee-476c-8402-94527e161508) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Step 5: Copy Your Client ID
+- Once the popup appears, copy the **Client ID**.
+- Once you copy your client id, head over to index.html or [here](https://github.com/ItsAkshatSh/focusroom/blob/bdff3f35aa45f4df166d5c63b62a5e1d67ebcce2/index.html#L9), and replace the 'GOOGLE_CLIENT_ID' with your's
