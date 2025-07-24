@@ -55,7 +55,7 @@ function getUserId() {
 
 export class SpotifyService {
   private static instance: SpotifyService;
-  private clientId: string = 'ed10f8f1a54545c6b18241836b22f3d5'; 
+  private clientId: string = 'SPOTIFY_CLIENT_ID'; 
   private accessToken: string | null = null;
 
   private getStorageKey(key: string) {
